@@ -1,19 +1,19 @@
 image:
-  repository: ghcr.io/onedr0p/sabnzbd
+  repository: ghcr.io/onedr0p/bazarr
   pullPolicy: IfNotPresent
-  tag: 4.1.0@sha256:91f3cd6b9f1c9988af5447f464b299630706eb7f691dee857eab1487d4bb626e
+  tag: 1.3.1@sha256:840242bb1dfb337e5bfa579af039738bbf9948f6f33deecf451ebdd9ca509e31
 exportarrImage:
   repository: tccr.io/truecharts/exportarr
   pullPolicy: IfNotPresent
   tag: v1.6.0@sha256:ee118701a2ebe8ccb5c25e1003fbed9ef7ce217d4e4b8b6df30cc2a0def818f8
 
-
 service:
   main:
     ports:
       main:
-        port: 10097
-        targetPort: 8080
+        port: 6767
+        protocol: http
+        targetPort: 6767
   metrics:
     enabled: true
     type: ClusterIP
@@ -24,41 +24,7 @@ service:
         port: 7879
         targetSelector: exportarr
 
-persistence:
-  config:
-    enabled: true
-    targetSelector:
-      main:
-        main:
-          mountPath: /config
-      exportarr:
-        exportarr:
-          mountPath: /config
-          readOnly: true
-
-portal:
-  open:
-    enabled: true
-
-metrics:
-  main:
-    enabled: true
-    type: "servicemonitor"
-    endpoints:
-      - port: metrics
-        path: /metrics
-    targetSelector: metrics
-
 workload:
-  main:
-    podSpec:
-      containers:
-        main:
-          env:
-            SABNZBD__HOST_WHITELIST_ENTRIES: ""
-          envFrom:
-            - secretRef:
-                name: sabnzbdsecret
   exportarr:
     enabled: true
     type: Deployment
@@ -71,7 +37,7 @@ workload:
           enabled: true
           imageSelector: exportarrImage
           args:
-            - sabnzbd
+            - bazarr
           probes:
             liveness:
               enabled: true
@@ -93,7 +59,30 @@ workload:
             PORT: "{{ .Values.service.metrics.ports.metrics.port }}"
             URL: '{{ printf "http://%v:%v" (include "tc.v1.common.lib.chart.names.fullname" $) .Values.service.main.ports.main.port }}'
             CONFIG: "/config/config.xml"
-            APIKEY:
-              secretKeyRef:
-                name: sabnzbdsecret
-                key: SABNZBD__API_KEY
+            APIKEY: ""
+
+persistence:
+  config:
+    enabled: true
+    targetSelector:
+      main:
+        main:
+          mountPath: /config
+      exportarr:
+        exportarr:
+          mountPath: /config
+          readOnly: true
+
+metrics:
+  main:
+    enabled: true
+    type: "servicemonitor"
+    endpoints:
+      - port: metrics
+        path: /metrics
+    targetSelector: metrics
+    apiKey: ""
+
+portal:
+  open:
+    enabled: true

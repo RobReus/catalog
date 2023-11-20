@@ -100,21 +100,6 @@ questions:
                               additional_attrs: true
                               type: dict
                               attrs:
-
-
-                                - variable: env
-                                  group: "App Configuration"
-                                  label: "Image Environment"
-                                  schema:
-                                    additional_attrs: true
-                                    type: dict
-                                    attrs:
-                                      - variable: SABNZBD__HOST_WHITELIST_ENTRIES
-                                        label: "HostName Whitelist"
-                                        description: "If you use a reverse proxy, you might need to enter your hostname's here (comma seperated)"
-                                        schema:
-                                          type: string
-                                          default: ""
                                 - variable: envList
                                   label: Extra Environment Variables
                                   description: "Please be aware that some variables are set in the background, adding duplicates here might cause issues or prevent the app from starting..."
@@ -241,33 +226,6 @@ questions:
                             schema:
                               type: string
                               required: true
-  - variable: sabnzbd
-    label: ""
-    group: "App Configuration"
-    schema:
-      additional_attrs: true
-      type: dict
-      attrs:
-        - variable: api_key
-          label: "API Key"
-          schema:
-            additional_attrs: true
-            type: dict
-            attrs:
-              - variable: enabled
-                label: "Manually set API key"
-                description: "This is only required when enabling metrics"
-                schema:
-                  type: boolean
-                  default: false
-                  show_subquestions_if: true
-                  subquestions:
-                    - variable: secret
-                      label: "API Key"
-                      schema:
-                        type: string
-                        default: ""
-                        required: true
   - variable: service
     group: Networking and Services
     label: Configure Service(s)
@@ -323,7 +281,7 @@ questions:
                             description: "This port exposes the container port on the service"
                             schema:
                               type: int
-                              default: 10097
+                              default: 6767
                               required: true
   - variable: serviceexpert
     group: Networking and Services
@@ -1521,6 +1479,12 @@ questions:
                   default: false
                   show_subquestions_if: true
                   subquestions:
+                    - variable: apiKey
+                      label: "Bazarr API key"
+                      schema:
+                        type: string
+                        default: ""
+                        required: true
                     - variable: prometheusRule
                       label: PrometheusRule
                       description: Enable and configure Prometheus Rules for the App.
