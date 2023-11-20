@@ -6,11 +6,11 @@
         "location": "/home/rob/git/github.com/RobReus/charts/catalog/stable/bazarr/15.1.3",
         "last_update": "2023-11-20 12:02:24",
         "required_features": [
-            "definitions/interface",
-            "normalize/interfaceConfiguration",
             "definitions/gpuConfiguration",
             "definitions/timezone",
-            "definitions/certificate"
+            "definitions/certificate",
+            "definitions/interface",
+            "normalize/interfaceConfiguration"
         ],
         "human_version": "1.3.1_15.1.3",
         "version": "15.1.3",

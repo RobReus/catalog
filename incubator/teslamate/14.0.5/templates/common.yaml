@@ -1,0 +1,12 @@
+{{/* Make sure all variables are set properly */}}
+{{- include "tc.v1.common.loader.init" . -}}
+
+{{- $encryptionKey := required "Encryption key is required" .Values.teslamate.encryptionKey -}}
+{{- $_ := set .Values.workload.main.podSpec.containers.main.env "ENCRYPTION_KEY" $encryptionKey -}}
+
+{{- if .Values.teslamate.mqttHost -}}
+  {{- $_ := set .Values.workload.main.podSpec.containers.main.env "MQTT_HOST" .Values.teslamate.mqttHost -}}
+{{- end -}}
+
+{{/* Render the templates */}}
+{{- include "tc.v1.common.loader.apply" . -}}

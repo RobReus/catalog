@@ -6,11 +6,11 @@
         "location": "/home/rob/git/github.com/RobReus/charts/catalog/stable/sabnzbd/15.1.7",
         "last_update": "2023-11-19 13:51:36",
         "required_features": [
-            "definitions/interface",
-            "normalize/interfaceConfiguration",
             "definitions/gpuConfiguration",
             "definitions/timezone",
-            "definitions/certificate"
+            "definitions/certificate",
+            "definitions/interface",
+            "normalize/interfaceConfiguration"
         ],
         "human_version": "4.1.0_15.1.7",
         "version": "15.1.7",
