@@ -1,0 +1,59 @@
+image:
+  repository: docker.io/teslamate/teslamate
+  pullPolicy: IfNotPresent
+  tag: 1.27.4@sha256:9f13a94f565d3146a92dce4ddc28e9f2d559709033d2870e7fda5494b191202e
+
+securityContext:
+  container:
+    readOnlyRootFilesystem: false
+
+service:
+  main:
+    ports:
+      main:
+        port: 4000
+
+teslamate:
+  encryptionKey: ""
+  mqttHost: ""
+
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          probes:
+            liveness:
+              enabled: true
+              type: http
+              path: /health_check
+            readiness:
+              enabled: true
+              type: http
+              path: /health_check
+            startup:
+              enabled: true
+              type: http
+              path: /health_check
+          env:
+            DATABASE_USER:
+              secretKeyRef:
+                name: cnpg-main-user
+                key: username
+            DATABASE_PASS:
+                name: cnpg-main-user
+                key: password
+            DATABASE_NAME: teslamate
+            DATABASE_HOST:
+                name: cnpg-main-urls
+                key: porthost
+
+cnpg:
+  main:
+    enabled: true
+    user: teslamate
+    database: teslamate
+
+portal:
+  open:
+    enabled: true
