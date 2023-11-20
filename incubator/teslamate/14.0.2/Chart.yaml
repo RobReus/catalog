@@ -20,7 +20,7 @@ sources:
   - https://github.com/truecharts/charts/tree/master/charts/incubator/teslamate
   - https://github.com/teslamate-org/teslamate
 type: application
-version: 14.0.1
+version: 14.0.2
 annotations:
   truecharts.org/category: productivity
   truecharts.org/SCALE-support: "true"

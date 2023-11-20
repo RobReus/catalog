@@ -1,19 +1,19 @@
 {
-    "14.0.1": {
+    "14.0.2": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/home/rob/git/github.com/RobReus/charts/catalog/incubator/teslamate/14.0.1",
-        "last_update": "2023-11-20 22:19:55",
+        "location": "/home/rob/git/github.com/RobReus/charts/catalog/incubator/teslamate/14.0.2",
+        "last_update": "2023-11-20 22:23:32",
         "required_features": [
-            "definitions/gpuConfiguration",
-            "definitions/timezone",
-            "normalize/interfaceConfiguration",
             "definitions/interface",
-            "definitions/certificate"
+            "normalize/interfaceConfiguration",
+            "definitions/certificate",
+            "definitions/gpuConfiguration",
+            "definitions/timezone"
         ],
-        "human_version": "v1.27.4_14.0.1",
-        "version": "14.0.1",
+        "human_version": "v1.27.4_14.0.2",
+        "version": "14.0.2",
         "chart_metadata": {
             "apiVersion": "v2",
             "appVersion": "v1.27.4",
@@ -45,7 +45,7 @@
                 "https://github.com/teslamate-org/teslamate"
             ],
             "type": "application",
-            "version": "14.0.1",
+            "version": "14.0.2",
             "annotations": {
                 "truecharts.org/category": "productivity",
                 "truecharts.org/SCALE-support": "true"
