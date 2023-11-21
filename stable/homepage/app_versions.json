@@ -1,10 +1,10 @@
 {
-    "15.1.3": {
+    "4.0.20": {
         "healthy": true,
         "supported": true,
         "healthy_error": null,
-        "location": "/home/rob/git/github.com/RobReus/charts/catalog/stable/bazarr/15.1.3",
-        "last_update": "2023-11-20 12:02:24",
+        "location": "/home/rob/git/github.com/RobReus/charts/catalog/stable/homepage/4.0.20",
+        "last_update": "2023-11-21 11:49:14",
         "required_features": [
             "definitions/certificate",
             "definitions/gpuConfiguration",
@@ -12,11 +12,11 @@
             "normalize/interfaceConfiguration",
             "definitions/interface"
         ],
-        "human_version": "1.3.1_15.1.3",
-        "version": "15.1.3",
+        "human_version": "0.8.0_4.0.20",
+        "version": "4.0.20",
         "chart_metadata": {
             "apiVersion": "v2",
-            "appVersion": "1.3.1",
+            "appVersion": "0.8.0",
             "dependencies": [
                 {
                     "name": "common",
@@ -24,17 +24,11 @@
                     "version": "14.3.5"
                 }
             ],
-            "deprecated": false,
-            "description": "Bazarr is a companion application to Sonarr and Radarr. It manages and downloads subtitles based on your requirements",
-            "home": "https://truecharts.org/charts/stable/bazarr",
-            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/bazarr.png",
+            "description": "A highly customizable homepage",
+            "home": "https://truecharts.org/charts/stable/homepage",
+            "icon": "https://truecharts.org/img/hotlink-ok/chart-icons/homepage.png",
             "keywords": [
-                "bazarr",
-                "radarr",
-                "sonarr",
-                "subtitles",
-                "usenet",
-                "torrent"
+                "homepage"
             ],
             "kubeVersion": ">=1.16.0-0",
             "maintainers": [
@@ -44,15 +38,14 @@
                     "url": "https://truecharts.org"
                 }
             ],
-            "name": "bazarr",
+            "name": "homepage",
             "sources": [
-                "https://github.com/truecharts/charts/tree/master/charts/stable/bazarr",
-                "https://github.com/morpheus65535/bazarr"
+                "https://github.com/truecharts/charts/tree/master/charts/stable/homepage",
+                "https://github.com/benphelps/homepage"
             ],
-            "type": "application",
-            "version": "15.1.3",
+            "version": "4.0.20",
             "annotations": {
-                "truecharts.org/category": "media",
+                "truecharts.org/category": "dashboard",
                 "truecharts.org/SCALE-support": "true"
             }
         },
@@ -538,7 +531,7 @@
                                                                     "description": "This port exposes the container port on the service",
                                                                     "schema": {
                                                                         "type": "int",
-                                                                        "default": 6767,
+                                                                        "default": 10352,
                                                                         "required": true
                                                                     }
                                                                 }
@@ -941,8 +934,8 @@
                         "attrs": [
                             {
                                 "variable": "config",
-                                "label": "App Config Storage",
-                                "description": "Stores the Application Configuration.",
+                                "label": "Config Storage",
+                                "description": "Config Storage",
                                 "schema": {
                                     "additional_attrs": true,
                                     "type": "dict",
@@ -2647,68 +2640,6 @@
                     }
                 },
                 {
-                    "variable": "metrics",
-                    "group": "Metrics",
-                    "label": "Prometheus Metrics",
-                    "schema": {
-                        "additional_attrs": true,
-                        "type": "dict",
-                        "attrs": [
-                            {
-                                "variable": "main",
-                                "label": "Main Metrics",
-                                "schema": {
-                                    "additional_attrs": true,
-                                    "type": "dict",
-                                    "attrs": [
-                                        {
-                                            "variable": "enabled",
-                                            "label": "Enabled",
-                                            "description": "Enable Prometheus Metrics",
-                                            "schema": {
-                                                "type": "boolean",
-                                                "default": false,
-                                                "show_subquestions_if": true,
-                                                "subquestions": [
-                                                    {
-                                                        "variable": "apiKey",
-                                                        "label": "Bazarr API key",
-                                                        "schema": {
-                                                            "type": "string",
-                                                            "default": "",
-                                                            "required": true
-                                                        }
-                                                    },
-                                                    {
-                                                        "variable": "prometheusRule",
-                                                        "label": "PrometheusRule",
-                                                        "description": "Enable and configure Prometheus Rules for the App.",
-                                                        "schema": {
-                                                            "additional_attrs": true,
-                                                            "type": "dict",
-                                                            "attrs": [
-                                                                {
-                                                                    "variable": "enabled",
-                                                                    "label": "Enabled",
-                                                                    "description": "Enable Prometheus Metrics",
-                                                                    "schema": {
-                                                                        "type": "boolean",
-                                                                        "default": false
-                                                                    }
-                                                                }
-                                                            ]
-                                                        }
-                                                    }
-                                                ]
-                                            }
-                                        }
-                                    ]
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
                     "variable": "networkPolicy",
                     "group": "Advanced",
                     "label": "(Advanced) Network Policy",
@@ -3502,6 +3433,296 @@
                                                     }
                                                 ]
                                             }
+                                        },
+                                        {
+                                            "variable": "ingress",
+                                            "label": "",
+                                            "group": "Ingress",
+                                            "schema": {
+                                                "additional_attrs": true,
+                                                "type": "dict",
+                                                "attrs": [
+                                                    {
+                                                        "variable": "enabled",
+                                                        "label": "Enable Ingress",
+                                                        "schema": {
+                                                            "type": "boolean",
+                                                            "default": false,
+                                                            "show_subquestions_if": true,
+                                                            "subquestions": [
+                                                                {
+                                                                    "variable": "hosts",
+                                                                    "label": "Hosts",
+                                                                    "schema": {
+                                                                        "type": "list",
+                                                                        "default": [],
+                                                                        "items": [
+                                                                            {
+                                                                                "variable": "hostEntry",
+                                                                                "label": "Host",
+                                                                                "schema": {
+                                                                                    "additional_attrs": true,
+                                                                                    "type": "dict",
+                                                                                    "attrs": [
+                                                                                        {
+                                                                                            "variable": "host",
+                                                                                            "label": "HostName",
+                                                                                            "schema": {
+                                                                                                "type": "string",
+                                                                                                "default": "",
+                                                                                                "required": true
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "variable": "paths",
+                                                                                            "label": "Paths",
+                                                                                            "schema": {
+                                                                                                "type": "list",
+                                                                                                "default": [
+                                                                                                    {
+                                                                                                        "path": "/",
+                                                                                                        "pathType": "Prefix"
+                                                                                                    }
+                                                                                                ],
+                                                                                                "items": [
+                                                                                                    {
+                                                                                                        "variable": "pathEntry",
+                                                                                                        "label": "Host",
+                                                                                                        "schema": {
+                                                                                                            "additional_attrs": true,
+                                                                                                            "type": "dict",
+                                                                                                            "attrs": [
+                                                                                                                {
+                                                                                                                    "variable": "path",
+                                                                                                                    "label": "Path",
+                                                                                                                    "schema": {
+                                                                                                                        "type": "string",
+                                                                                                                        "required": true,
+                                                                                                                        "default": "/"
+                                                                                                                    }
+                                                                                                                },
+                                                                                                                {
+                                                                                                                    "variable": "pathType",
+                                                                                                                    "label": "Path Type",
+                                                                                                                    "schema": {
+                                                                                                                        "type": "string",
+                                                                                                                        "required": true,
+                                                                                                                        "default": "Prefix"
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        }
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "variable": "certificateIssuer",
+                                                                    "label": "Cert-Manager clusterIssuer",
+                                                                    "description": "add the name of your cert-manager clusterIssuer here for automatic tls certificates. Cannot be used combined with tls option below",
+                                                                    "schema": {
+                                                                        "type": "string",
+                                                                        "default": ""
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "variable": "middlewares",
+                                                                    "label": "Traefik Middlewares",
+                                                                    "description": "Add previously created Traefik Middlewares to this Ingress",
+                                                                    "schema": {
+                                                                        "type": "list",
+                                                                        "default": [],
+                                                                        "items": [
+                                                                            {
+                                                                                "variable": "name",
+                                                                                "label": "Name",
+                                                                                "schema": {
+                                                                                    "type": "string",
+                                                                                    "default": "",
+                                                                                    "required": true
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "variable": "advanced",
+                                                                    "label": "Show Advanced Settings",
+                                                                    "description": "Advanced settings are not covered by TrueCharts Support",
+                                                                    "schema": {
+                                                                        "type": "boolean",
+                                                                        "default": false
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "variable": "entrypoint",
+                                                                    "label": "(Advanced) Traefik Entrypoint",
+                                                                    "description": "Entrypoint used by Traefik when using Traefik as Ingress Provider",
+                                                                    "schema": {
+                                                                        "type": "string",
+                                                                        "default": "websecure",
+                                                                        "show_if": [
+                                                                            [
+                                                                                "advanced",
+                                                                                "=",
+                                                                                true
+                                                                            ]
+                                                                        ],
+                                                                        "required": true
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "variable": "allowCors",
+                                                                    "label": "Allow Cross Origin Requests",
+                                                                    "schema": {
+                                                                        "type": "boolean",
+                                                                        "show_if": [
+                                                                            [
+                                                                                "advanced",
+                                                                                "=",
+                                                                                true
+                                                                            ]
+                                                                        ],
+                                                                        "default": false
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "variable": "ingressClassName",
+                                                                    "label": "(Advanced/Optional) IngressClass Name",
+                                                                    "schema": {
+                                                                        "type": "string",
+                                                                        "show_if": [
+                                                                            [
+                                                                                "advanced",
+                                                                                "=",
+                                                                                true
+                                                                            ]
+                                                                        ],
+                                                                        "default": ""
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "variable": "tls",
+                                                                    "label": "TLS-Settings",
+                                                                    "schema": {
+                                                                        "type": "list",
+                                                                        "show_if": [
+                                                                            [
+                                                                                "advanced",
+                                                                                "=",
+                                                                                true
+                                                                            ]
+                                                                        ],
+                                                                        "default": [],
+                                                                        "items": [
+                                                                            {
+                                                                                "variable": "tlsEntry",
+                                                                                "label": "Host",
+                                                                                "schema": {
+                                                                                    "additional_attrs": true,
+                                                                                    "type": "dict",
+                                                                                    "attrs": [
+                                                                                        {
+                                                                                            "variable": "hosts",
+                                                                                            "label": "Certificate Hosts",
+                                                                                            "schema": {
+                                                                                                "type": "list",
+                                                                                                "default": [],
+                                                                                                "items": [
+                                                                                                    {
+                                                                                                        "variable": "host",
+                                                                                                        "label": "Host",
+                                                                                                        "schema": {
+                                                                                                            "type": "string",
+                                                                                                            "default": "",
+                                                                                                            "required": true
+                                                                                                        }
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "variable": "certificateIssuer",
+                                                                                            "label": "Use Cert-Manager clusterIssuer",
+                                                                                            "description": "add the name of your cert-manager clusterIssuer here for automatic tls certificates.",
+                                                                                            "schema": {
+                                                                                                "type": "string",
+                                                                                                "default": ""
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "variable": "clusterCertificate",
+                                                                                            "label": "Cluster Certificate (Advanced)",
+                                                                                            "description": "Add the name of your cluster-wide certificate, that you set up in the ClusterIssuer chart.",
+                                                                                            "schema": {
+                                                                                                "type": "string",
+                                                                                                "show_if": [
+                                                                                                    [
+                                                                                                        "certificateIssuer",
+                                                                                                        "=",
+                                                                                                        ""
+                                                                                                    ]
+                                                                                                ],
+                                                                                                "default": ""
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "variable": "secretName",
+                                                                                            "label": "Use Custom Certificate Secret (Advanced)",
+                                                                                            "schema": {
+                                                                                                "show_if": [
+                                                                                                    [
+                                                                                                        "certificateIssuer",
+                                                                                                        "=",
+                                                                                                        ""
+                                                                                                    ]
+                                                                                                ],
+                                                                                                "type": "string",
+                                                                                                "default": ""
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            "variable": "scaleCert",
+                                                                                            "label": "Use TrueNAS SCALE Certificate (Deprecated)",
+                                                                                            "schema": {
+                                                                                                "show_if": [
+                                                                                                    [
+                                                                                                        "certificateIssuer",
+                                                                                                        "=",
+                                                                                                        ""
+                                                                                                    ]
+                                                                                                ],
+                                                                                                "type": "int",
+                                                                                                "$ref": [
+                                                                                                    "definitions/certificate"
+                                                                                                ],
+                                                                                                "enum": [
+                                                                                                    {
+                                                                                                        "value": null,
+                                                                                                        "description": "No Certificate"
+                                                                                                    }
+                                                                                                ],
+                                                                                                "default": null,
+                                                                                                "null": true
+                                                                                            }
+                                                                                        }
+                                                                                    ]
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            }
                                         }
                                     ]
                                 }
@@ -3933,7 +4154,7 @@
                 }
             ]
         },
-        "app_readme": "<p>Bazarr is a companion application to Sonarr and Radarr. It manages and downloads subtitles based on your requirements</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/bazarr\">https://truecharts.org/charts/stable/bazarr</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
+        "app_readme": "<p>A highly customizable homepage</p>\n<p>This App is supplied by TrueCharts, for more information visit the manual: <a href=\"https://truecharts.org/charts/stable/homepage\">https://truecharts.org/charts/stable/homepage</a></p>\n<hr />\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>",
         "detailed_readme": "<h1>README</h1>\n<h2>General Info</h2>\n<p>TrueCharts can be installed as both <em>normal</em> Helm Charts or as Apps on TrueNAS SCALE.\nHowever only installations using the TrueNAS SCALE Apps system are supported.</p>\n<p>For more information about this App, please check the docs on the TrueCharts <a href=\"https://truecharts.org/charts/stable/\">website</a></p>\n<p><strong>This chart is not maintained by the upstream project and any issues with the chart should be raised <a href=\"https://github.com/truecharts/charts/issues/new/choose\">here</a></strong></p>\n<h2>Support</h2>\n<ul>\n<li>Please check our <a href=\"https://truecharts.org/manual/SCALE/guides/scale-intro\">quick-start guides for TrueNAS SCALE</a>.</li>\n<li>See the <a href=\"https://truecharts.org\">Website</a></li>\n<li>Check our <a href=\"https://discord.gg/tVsPTHWTtr\">Discord</a></li>\n<li>Open a <a href=\"https://github.com/truecharts/charts/issues/new/choose\">issue</a></li>\n</ul>\n<hr />\n<h2>Sponsor TrueCharts</h2>\n<p>TrueCharts can only exist due to the incredible effort of our staff.\nPlease consider making a <a href=\"https://truecharts.org/sponsor\">donation</a> or contributing back to the project any way you can!</p>\n<p><em>All Rights Reserved - The TrueCharts Project</em></p>",
         "changelog": ""
     }

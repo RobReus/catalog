@@ -4,13 +4,13 @@
         "supported": true,
         "healthy_error": null,
         "location": "/home/rob/git/github.com/RobReus/charts/catalog/incubator/teslamate/14.0.5",
-        "last_update": "2023-11-20 23:04:21",
+        "last_update": "2023-11-20 23:04:41",
         "required_features": [
+            "definitions/certificate",
             "definitions/gpuConfiguration",
             "definitions/timezone",
-            "definitions/certificate",
-            "definitions/interface",
-            "normalize/interfaceConfiguration"
+            "normalize/interfaceConfiguration",
+            "definitions/interface"
         ],
         "human_version": "v1.27.4_14.0.5",
         "version": "14.0.5",
@@ -3521,11 +3521,11 @@
         "location": "/home/rob/git/github.com/RobReus/charts/catalog/incubator/teslamate/14.0.4",
         "last_update": "2023-11-20 23:02:07",
         "required_features": [
+            "definitions/certificate",
             "definitions/gpuConfiguration",
             "definitions/timezone",
-            "definitions/certificate",
-            "definitions/interface",
-            "normalize/interfaceConfiguration"
+            "normalize/interfaceConfiguration",
+            "definitions/interface"
         ],
         "human_version": "v1.27.4_14.0.4",
         "version": "14.0.4",
@@ -7036,11 +7036,11 @@
         "location": "/home/rob/git/github.com/RobReus/charts/catalog/incubator/teslamate/14.0.3",
         "last_update": "2023-11-20 22:56:00",
         "required_features": [
+            "definitions/certificate",
             "definitions/gpuConfiguration",
             "definitions/timezone",
-            "definitions/certificate",
-            "definitions/interface",
-            "normalize/interfaceConfiguration"
+            "normalize/interfaceConfiguration",
+            "definitions/interface"
         ],
         "human_version": "v1.27.4_14.0.3",
         "version": "14.0.3",
@@ -10916,11 +10916,11 @@
         "location": "/home/rob/git/github.com/RobReus/charts/catalog/incubator/teslamate/14.0.2",
         "last_update": "2023-11-20 22:23:39",
         "required_features": [
+            "definitions/certificate",
             "definitions/gpuConfiguration",
             "definitions/timezone",
-            "definitions/certificate",
-            "definitions/interface",
-            "normalize/interfaceConfiguration"
+            "normalize/interfaceConfiguration",
+            "definitions/interface"
         ],
         "human_version": "v1.27.4_14.0.2",
         "version": "14.0.2",

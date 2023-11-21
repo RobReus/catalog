@@ -1,0 +1,71 @@
+image:
+  repository: ghcr.io/gethomepage/homepage
+  tag: v0.8.0@sha256:3360078ec3f28c8f25e8c24d8a700489f289b522fba4e1f7bb3f1c1337415dc8
+  pullPolicy: IfNotPresent
+service:
+  main:
+    ports:
+      main:
+        port: 10352
+        protocol: http
+        targetPort: 3000
+persistence:
+  config:
+    enabled: true
+    mountPath: /app/config
+portal:
+  open:
+    enabled: true
+serviceAccount:
+  main:
+    enabled: true
+    primary: true
+rbac:
+  main:
+    enabled: true
+    primary: true
+    clusterWide: true
+    rules:
+      - apiGroups:
+          - ""
+        resources:
+          - namespaces
+          - pods
+          - nodes
+        verbs:
+          - get
+          - list
+      - apiGroups:
+          - extensions
+          - networking.k8s.io
+        resources:
+          - ingresses
+        verbs:
+          - get
+          - list
+      - apiGroups:
+          - traefik.containo.us
+          - traefik.io
+        resources:
+          - ingressroutes
+        verbs:
+          - get
+          - list
+      - apiGroups:
+          - metrics.k8s.io
+        resources:
+          - nodes
+          - pods
+        verbs:
+          - get
+          - list
+      - apiGroups:
+          - apiextensions.k8s.io
+        resources:
+          - customresourcedefinitions/status
+        verbs:
+          - get
+workload:
+  main:
+    podSpec:
+      automountServiceAccountToken: true
