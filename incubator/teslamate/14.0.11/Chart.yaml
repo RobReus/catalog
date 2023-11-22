@@ -1,0 +1,26 @@
+apiVersion: v2
+appVersion: "1.27.4"
+dependencies:
+  - name: common
+    repository: https://library-charts.truecharts.org
+    version: 14.3.5
+deprecated: false
+description: A powerful, self-hosted data logger for your Tesla
+home: https://truecharts.org/charts/incubator/teslamate
+icon: https://static-00.iconduck.com/assets.00/teslamate-icon-127x144-bknx7mpu.png
+keywords:
+  - teslamate
+kubeVersion: ">=1.16.0-0"
+maintainers:
+  - email: info@truecharts.org
+    name: TrueCharts
+    url: https://truecharts.org
+name: teslamate
+sources:
+  - https://github.com/truecharts/charts/tree/master/charts/incubator/teslamate
+  - https://github.com/teslamate-org/teslamate
+type: application
+version: 14.0.11
+annotations:
+  truecharts.org/category: productivity
+  truecharts.org/SCALE-support: "true"
