@@ -4,13 +4,13 @@
         "supported": true,
         "healthy_error": null,
         "location": "/home/rob/git/github.com/RobReus/charts/catalog/stable/homepage/4.0.20",
-        "last_update": "2023-11-21 11:49:14",
+        "last_update": "2023-11-21 15:03:40",
         "required_features": [
-            "definitions/certificate",
-            "definitions/gpuConfiguration",
             "definitions/timezone",
-            "normalize/interfaceConfiguration",
-            "definitions/interface"
+            "definitions/certificate",
+            "definitions/interface",
+            "definitions/gpuConfiguration",
+            "normalize/interfaceConfiguration"
         ],
         "human_version": "0.8.0_4.0.20",
         "version": "4.0.20",
@@ -3430,18 +3430,7 @@
                                                                 }
                                                             ]
                                                         }
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            "variable": "ingress",
-                                            "label": "",
-                                            "group": "Ingress",
-                                            "schema": {
-                                                "additional_attrs": true,
-                                                "type": "dict",
-                                                "attrs": [
+                                                    },
                                                     {
                                                         "variable": "enabled",
                                                         "label": "Enable Ingress",
