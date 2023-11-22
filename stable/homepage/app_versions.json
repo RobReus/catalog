@@ -6,11 +6,11 @@
         "location": "/home/rob/git/github.com/RobReus/charts/catalog/stable/homepage/4.0.20",
         "last_update": "2023-11-22 15:34:18",
         "required_features": [
-            "definitions/timezone",
-            "normalize/interfaceConfiguration",
             "definitions/interface",
+            "normalize/interfaceConfiguration",
             "definitions/gpuConfiguration",
-            "definitions/certificate"
+            "definitions/certificate",
+            "definitions/timezone"
         ],
         "human_version": "0.8.0_4.0.20",
         "version": "4.0.20",
