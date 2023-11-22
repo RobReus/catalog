@@ -7,10 +7,10 @@
         "last_update": "2023-11-19 13:51:36",
         "required_features": [
             "definitions/timezone",
-            "definitions/certificate",
+            "normalize/interfaceConfiguration",
             "definitions/interface",
             "definitions/gpuConfiguration",
-            "normalize/interfaceConfiguration"
+            "definitions/certificate"
         ],
         "human_version": "4.1.0_15.1.7",
         "version": "15.1.7",

@@ -4,13 +4,13 @@
         "supported": true,
         "healthy_error": null,
         "location": "/home/rob/git/github.com/RobReus/charts/catalog/stable/homepage/4.0.20",
-        "last_update": "2023-11-21 15:03:40",
+        "last_update": "2023-11-22 15:34:18",
         "required_features": [
             "definitions/timezone",
-            "definitions/certificate",
+            "normalize/interfaceConfiguration",
             "definitions/interface",
             "definitions/gpuConfiguration",
-            "normalize/interfaceConfiguration"
+            "definitions/certificate"
         ],
         "human_version": "0.8.0_4.0.20",
         "version": "4.0.20",
