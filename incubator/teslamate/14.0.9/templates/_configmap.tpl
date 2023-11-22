@@ -3,6 +3,7 @@
 enabled: true
 data:
   PORT: "4000"
+  DISABLE_MQTT: {{ .Values.teslamate.mqtt.enabled | quote }}
   {{- if .Values.teslamate.mqtt.enabled -}}
   MQTT_HOST: {{ required "MQTT Host is required when MQTT is enabled" .Values.teslamate.mqtt.host | quote }}
   MQTT_PORT: {{ .Values.teslamate.mqtt.port | quote }}
